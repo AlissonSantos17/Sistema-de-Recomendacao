@@ -22,7 +22,13 @@ def filmesByUser(id):
 @app.route("/recomendacao/<string:id>", methods=["GET"])
 def recomendarfilmes(id):
   base = getDados.jsonUsers()
-  return jsonify(recomendacao.recomendar(base, id))
+  dado = recomendacao.recomendar(base, id)
+  retorno_alterado_filmes = []
+  for x in dado:
+    retorno = getDados.get_filme_id(x[1])
+    retorno.update({'movieId': x[1]})
+    retorno_alterado_filmes.append(retorno)
+  return jsonify(retorno_alterado_filmes)
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port='5000', debug=True)
