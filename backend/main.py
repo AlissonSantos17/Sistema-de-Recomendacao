@@ -1,15 +1,15 @@
 from flask import Flask, jsonify
 from source import getDados
-# from source.euclidiana import distanciaEuclidiana
 from source import recomendacao
 import json
 from flask_cors import CORS
+
 app = Flask(__name__)
 CORS(app)
 
 @app.route("/")
 def hello():
-    return jsonify("Hello Word")
+    return jsonify(["Seja bem vindo a API de Recomendação de Filmes."])
 
 @app.route("/user/<string:id>", methods=["GET"])
 def verificaId(id):

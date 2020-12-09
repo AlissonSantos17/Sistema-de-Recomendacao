@@ -1,6 +1,6 @@
 # !/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from euclidiana import distanciaEuclidiana
+from recomendacao import distanciaEuclidiana
 
 def getSimilares(base, usuario):
   similaridade = [
