@@ -1,2 +1,2 @@
 # Sistema-de-Recomendacao
-Sistema de recomendação feita com Grafos
+Sistema de recomendação feita com conhecimento em Grafos
