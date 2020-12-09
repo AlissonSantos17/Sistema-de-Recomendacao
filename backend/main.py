@@ -17,7 +17,13 @@ def verificaId(id):
 
 @app.route("/users/<string:id>", methods=["GET"])
 def filmesByUser(id):
-  return jsonify(getDados.get_filmes_por_users(id))
+  dado = getDados.get_filmes_por_users(id)
+  retorno_alterado_filmes_assistidos = []
+  for x in dado:
+    retorno = getDados.get_filme_id(x)
+    retorno.update({'movieId': x})
+    retorno_alterado_filmes_assistidos.append(retorno)
+  return jsonify(retorno_alterado_filmes_assistidos)
 
 @app.route("/recomendacao/<string:id>", methods=["GET"])
 def recomendarfilmes(id):

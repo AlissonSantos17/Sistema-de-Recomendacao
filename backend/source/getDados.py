@@ -4,7 +4,7 @@ import json
 
 # FAZ A LOAD DE TODOS OS DADOS CONTIDOS NO USERS.JSON
 def jsonUsers():
-  with open('backend/users.json') as jsonFileUsers:
+  with open('users.json') as jsonFileUsers:
     return json.load(jsonFileUsers)
 
 # RETORNA TODOS OS DADOS DENTRO DO JSON
@@ -25,7 +25,7 @@ def get_filmes_por_users(userId):
 
 # FAZ A LOAD DE TODOS OS DADOS CONTIDOS NO USERS.JSON
 def jsonMovies():
-  with open('backend/movies.json') as jsonFileMovies:
+  with open('movies.json') as jsonFileMovies:
     return json.load(jsonFileMovies)
 
 # RETORNA O FILME PELO userID
