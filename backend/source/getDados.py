@@ -42,5 +42,4 @@ def update_poster(tmdbId, path):
   poster = criarPoster()
   poster.update({tmdbId: path})
   with open('posterFilmes', 'w') as outFile:
-    jsom.dump(poster, outFile)
-update_poster()
+    json.dump(poster, outFile)
