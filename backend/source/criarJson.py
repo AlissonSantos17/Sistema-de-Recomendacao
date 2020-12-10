@@ -51,7 +51,18 @@ def criarMovies():
   with open('movies.json', 'w') as outFile:
     json.dump(movies, outFile)
 
+
+def criarPoster():
+  try:
+    with open('posterFilmes.json') as filmesPoster:
+      return json.load(filmesPostes)
+  except FileNotFoundError:
+    with open('posterFilmes.json') as filmesPoster:
+      jsom.dump({}, filmesPoster)
+      return {}
+
 # EXECUTA AS FUNÇÕES
 if __name__ == "__main__":
-  criarUsers()
-  criarMovies()
+  # criarUsers()
+  # criarMovies()
+  criarPoster()

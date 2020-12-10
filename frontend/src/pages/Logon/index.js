@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Alert } from 'reactstrap';
-
-import api from '../../../services/api';
+import filmeImg from '../../assets/filme.png'
+import api from '../../services/api';
 
 import './styles.css';
 
-export default function Logon() {
+export default function Logon({ history }) {
   const [id, setId] = useState([]);
-  const history = useHistory()
   
   function refreshPage(){ 
     window.location.reload(); 
   }
   async function handleLogin(e)  {
     e.preventDefault();
-    const response = await api.get('/user/' + id);
+    const response = await api.get(`/usuario/${id}`);
     console.log(`Usuario encontrado na base de dados: ${response.data}`)
     localStorage.setItem('id', id);
 
-    if(id > 0 & id <= 610) {
-      history.push('/recomendacoes');
+    if(response.data === true) {
+      history.push('/recomendacao');
     } else {
       alert('Informe um numero entre 1 - 610');
       refreshPage()
@@ -30,9 +28,10 @@ export default function Logon() {
     <div className="logon-container">
       <section className="form">
         <form onSubmit={handleLogin}>
-          <h1>Digite um ID de 1 a 610:</h1>
+          <img src={filmeImg} width={200} alt="logotipo Unit"/>
+          <h1>Usúario 1 - 610:</h1>
           <input 
-            placeholder="Sua ID"
+            placeholder="Seu usúario"
             value={id}
             onChange={e => setId(e.target.value)}
           />

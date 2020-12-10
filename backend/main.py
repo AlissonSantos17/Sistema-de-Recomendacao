@@ -1,3 +1,6 @@
+# !/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 from flask import Flask, jsonify
 from source import getDados
 from source import recomendacao
@@ -11,11 +14,11 @@ CORS(app)
 def hello():
     return jsonify(["Seja bem vindo a API de Recomendação de Filmes."])
 
-@app.route("/user/<string:id>", methods=["GET"])
+@app.route("/usuario/<string:id>", methods=["GET"])
 def verificaId(id):
   return jsonify(getDados.get_users_id(id))
 
-@app.route("/users/<string:id>", methods=["GET"])
+@app.route("/filmes_usuario/<string:id>", methods=["GET"])
 def filmesByUser(id):
   dado = getDados.get_filmes_por_users(id)
   retorno_alterado_filmes_assistidos = []
@@ -23,7 +26,7 @@ def filmesByUser(id):
     retorno = getDados.get_filme_id(x)
     retorno.update({'movieId': x})
     retorno_alterado_filmes_assistidos.append(retorno)
-  return jsonify(retorno_alterado_filmes_assistidos)
+  return jsonify(retorno_alterado_filmes_assistidos[:16])
 
 @app.route("/recomendacao/<string:id>", methods=["GET"])
 def recomendarfilmes(id):
