@@ -1,0 +1,21 @@
+version: 3
+services:
+  flask-backend-server:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    container_name: flask-backend-server
+    volumes:
+        - ./backend:/usr/src/app/backend
+  react-ui:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports: 
+      - "3000:3000"
+    container_name: react-ui
+    volumes:
+      - ./frontend:/usr/src/app/frontend
+      - /usr/src/app/frontend/node_modules
