@@ -29,9 +29,9 @@ export default function Logon({ history }) {
         <form onSubmit={handleLogin}>
           <img src={filmeImg} width={200} alt="logotipo"/>
           <h1>Sistema de Recomendação</h1>
-          <h1>Usúario 1 - 610:</h1>
+          <h1>Usuário 1 - 610:</h1>
           <input 
-            placeholder="Seu usúario"
+            placeholder="Seu usuário"
             value={id}
             onChange={e => setId(e.target.value)}
           />
