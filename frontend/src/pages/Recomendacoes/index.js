@@ -21,14 +21,25 @@ export default function Recomendacao() {
  return(
  <>
     <div className="container">
-      <strong>Filmes que ele assistiu</strong>
+      <strong>Filmes assistidos pelo usuario </strong>
     </div>
-    <ul className="filmes-usuario">
+    <ul className="filmes-assistidos-usuario">
       {filmes.map(filme => (
         <li key={filmes.movieId}>
-          <strong>{filme.title}</strong>
-          <span className="avaliacao"> Avaliação: {filme.avaliacao}</span>
-          <span>{filme.genres}</span>
+          <strong>Titulo: {filme.title}</strong>
+          <span className="avaliacao"> Nota do filme: {filme.nota}</span>
+          <span>Gênero: {filme.genres}</span>
+        </li>
+      ))}
+    </ul>
+    <div className="container">
+      <strong>Filmes que recomendamos para assistir</strong>
+    </div>
+    <ul className="filmes-recomendados-usuario">
+      {recomendarFilmes.map(recomenda => (
+        <li key={recomenda.movieId}>
+          <strong>Titulo: {recomenda.title}</strong>
+          <span>Gênero: {recomenda.genres}</span>
         </li>
       ))}
     </ul>
