@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import filmeImg from '../../assets/filme.png'
 import api from '../../services/api';
 
@@ -28,13 +27,15 @@ export default function Logon({ history }) {
     <div className="logon-container">
       <section className="form">
         <form onSubmit={handleLogin}>
-          <img src={filmeImg} width={200} alt="logotipo Unit"/>
+          <img src={filmeImg} width={200} alt="logotipo"/>
+          <h1>Sistema de Recomendação</h1>
           <h1>Usúario 1 - 610:</h1>
           <input 
             placeholder="Seu usúario"
             value={id}
             onChange={e => setId(e.target.value)}
           />
+          
           <button className="button">Enviar</button>
         </form>
       </section>
