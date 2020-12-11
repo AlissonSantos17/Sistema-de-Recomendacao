@@ -9,4 +9,4 @@ def getSimilares(base, usuario):
   ]
   similaridade.sort()
   similaridade.reverse()
-  return similaridade[0:15]
+  return similaridade[0:26]

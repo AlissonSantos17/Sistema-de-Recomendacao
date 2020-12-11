@@ -33,4 +33,4 @@ def recomendar(base, usuario):
   rankings = [(total / soma_similaridade[item], item) for item, total in totais.items()]
   rankings.sort()
   rankings.reverse()
-  return rankings[0:16]
+  return rankings[0:26]

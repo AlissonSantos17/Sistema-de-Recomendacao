@@ -22,11 +22,12 @@ def verificaId(id):
 def filmesByUser(id):
   dado = getDados.get_filmes_por_users(id)
   retorno_alterado_filmes_assistidos = []
-  for x in dado:
+  for x, notas_filmes in dado.items():
     retorno = getDados.get_filme_id(x)
+    retorno.update({"nota": notas_filmes})
     retorno.update({'movieId': x})
     retorno_alterado_filmes_assistidos.append(retorno)
-  return jsonify(retorno_alterado_filmes_assistidos[:16])
+  return jsonify(retorno_alterado_filmes_assistidos[:26])
 
 @app.route("/recomendacao/<string:id>", methods=["GET"])
 def recomendarfilmes(id):
