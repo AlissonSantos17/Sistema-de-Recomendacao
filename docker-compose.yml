@@ -1,14 +1,13 @@
-version: "3"
 services:
-  flask-backend-server:
+  nest-backend-server:
     build:
       context: ./backend
       dockerfile: Dockerfile
     ports:
       - "5000:5000"
-    container_name: flask-backend-server
-    volumes:
-        - ./backend:/usr/src/app/backend
+    container_name: nest-backend-server
+    env_file:
+      - ./backend/.env
   react-ui:
     build:
       context: ./frontend
@@ -16,6 +15,10 @@ services:
     ports: 
       - "3000:3000"
     container_name: react-ui
+    depends_on:
+      - nest-backend-server
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000
     volumes:
       - ./frontend:/usr/src/app/frontend
       - /usr/src/app/frontend/node_modules

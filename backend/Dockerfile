@@ -1,13 +1,14 @@
-FROM python:3.7
+FROM node:20-alpine
 
 WORKDIR /usr/src/app/backend
 
-COPY requirements.txt ./
-
-RUN pip install -r requirements.txt
+COPY package*.json ./
+RUN npm install
 
 COPY . .
 
+RUN npm run build
+
 EXPOSE 5000
 
-CMD [ "python" , "main.py" ]
+CMD ["npm", "run", "start"]

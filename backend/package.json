@@ -1,0 +1,42 @@
+{
+  "name": "movie-recommendation-backend",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Backend NestJS para recomendacao de filmes com grafo + Dijkstra modificado",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/src/main.js",
+    "start:dev": "ts-node src/main.ts",
+    "test": "jest --runInBand",
+    "test:watch": "jest --watch",
+    "data:build:users": "ts-node scripts/build-users-json.ts",
+    "data:build:movies": "ts-node scripts/build-movies-json.ts",
+    "data:build:graph": "ts-node scripts/build-user-graph.ts",
+    "data:build": "npm run data:build:users && npm run data:build:movies && npm run data:build:graph"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.4.15",
+    "@nestjs/core": "^10.4.15",
+    "@nestjs/platform-express": "^10.4.15",
+    "@nestjs/swagger": "^7.4.2",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "csv-parse": "^5.5.6",
+    "dotenv": "^17.3.1",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^10.4.22",
+    "@types/express": "^5.0.6",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.17.24",
+    "@types/supertest": "^6.0.3",
+    "jest": "^29.7.0",
+    "supertest": "^7.1.1",
+    "ts-jest": "^29.2.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
+}
