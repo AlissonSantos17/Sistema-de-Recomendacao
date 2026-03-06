@@ -27,13 +27,13 @@ A recomendacao usa grafo de usuarios + Dijkstra modificado:
 
 ```bash
 cd backend
-npm install
+yarn install
 ```
 
 ### 2) Gerar dados offline
 
 ```bash
-npm run data:build
+yarn run data:build
 ```
 
 Isso gera:
@@ -47,7 +47,7 @@ Observacao: se `ratings.csv` nao existir, o script de usuarios usa `backend/user
 ### 3) Subir API
 
 ```bash
-npm run start:dev
+yarn run start:dev
 ```
 
 API padrao: `http://localhost:5000`
